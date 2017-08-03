@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\Auth;
 
 class EpisodesController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $episodes = Episode::with('podcast')->recent()->paginate(25);

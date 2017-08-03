@@ -39,3 +39,7 @@ Route::delete('/subscriptions/{id}',                'SubscriptionsController@des
 
 Route::post('/published-podcasts',                  'PublishedPodcastsController@store');
 Route::delete('/published-podcasts/{id}',           'PublishedPodcastsController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

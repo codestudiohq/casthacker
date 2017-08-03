@@ -19,8 +19,16 @@
                             <a href="/" class="text-xl text-bold link-plain">&lt;casthacker/&gt;</a>
                         </div>
                         <div>
-                            <a href="/" class="link-plain text-medium mr-6 text-dark-soft">Podcasts</a>
-                            <a href="/episodes" class="link-plain text-medium text-dark-soft">Episodes</a>
+                            @auth
+                                <form class="inline-block" action="/logout" method="post">
+                                    {{ csrf_field() }}
+                                    <button class="inline-block link-plain text-medium mr-6 text-dark-soft">Logout</button>
+                                </form>
+                                <a href="/" class="link-plain text-medium mr-6 text-dark-soft">Podcasts</a>
+                                <a href="/episodes" class="link-plain text-medium text-dark-soft">Episodes</a>
+                            @else
+                                <a href="/login" class="link-plain text-medium mr-6 text-dark-soft">Login</a>
+                            @endauth
                         </div>
                     </div>
                 </div>
